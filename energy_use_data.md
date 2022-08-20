@@ -108,7 +108,7 @@ memory usage: 4.9+ MB
 ```
 
 ### Step-5: Finding Missing Values
-> DataSet is cleaned as far as missing values are concerned
+- DataSet is cleaned as far as missing values are concerned
 ```python
 df.isnull().sum()
 ```
@@ -246,7 +246,7 @@ plt.show()
 ```
 ![image](images/plot2_Distribution_CO2_emissions_sectors.png)
 
-> In other words, the data contains a high number of mathematical outliers as further emphasised by the following boxplots.
+- In other words, the data contains a high number of mathematical outliers as further emphasised by the following boxplots.
 
 ```pyhton
 # Boxplot of CO2 emissions 
@@ -280,7 +280,7 @@ plt.xlabel("Energy", fontsize=14)
 ```
 ![image](images/plot4_Distribution_CO2_emissions_boxplot.png)
 
-### Step-9: Visualization of Data
+### Step-10: Visualization of Data
 #### **Visualization of CO2 emissions over the years**
 > visualization of CO2 emissions over the years
 
@@ -332,6 +332,27 @@ plt.show()
 ```
 ![image](images/plot7_CO2_emissions_distribution.png)
 
+> Top 10 Countries with maximum CO2 Emissions
+
+```python
+s = df_clean.groupby(["Area"]).sum().sort_values(by="Value", ascending=False).head(10)
+
+plt.figure(figsize = (20,10))
+sns.barplot(y=s.index,x='Value',data=s)
+
+#customisation
+plt.annotate('Source: https://www.fao.org/faostat/en/#data/GN', (0,-.1), xycoords ='axes fraction' )
+plt.title("Top 10 Countries with maximum CO2 Emissions", fontsize = 18, loc='left', y=1.01 )
+plt.ylabel("Countries", fontsize=14)
+plt.xlabel("CO2 emissions - absolute number in kilotones ", fontsize=14)
+
+plt.show()
+```
+![image](images/Top_Ten_Country_by_Energy_Type.png)
+
+- This graph show that to 10 countries which are emitting highest value of value of Carbon.China, China mainland, and India are the top country.
+
+
 ## Part-2: EDA on Subcontinent
 CO2 Emissions from Subcontinent
 In this section subcontinent countries will be examined. the list of countries are as follows:
@@ -359,9 +380,9 @@ df_sub.shape
 ```
 (1019, 7)
 ```
+> Summary Statistics of selected subcontinents countries dataframe
 
 ```
-# Summary Statistics of selected subcontinents countries dataframe
 df_sub.describe()
 ```
 > **OutPut:**
@@ -406,32 +427,8 @@ plt.show()
 ```
 ![image](images/plot9.png)
 
-> Top 10 Countries with maximum CO2 Emissions
-
-```python
-s = df_clean.groupby(["Area"]).sum().sort_values(by="Value", ascending=False).head(10)
-
-plt.figure(figsize = (20,10))
-sns.barplot(y=s.index,x='Value',data=s)
-
-#customisation
-plt.annotate('Source: https://www.fao.org/faostat/en/#data/GN', (0,-.1), xycoords ='axes fraction' )
-plt.title("Top 10 Countries with maximum CO2 Emissions", fontsize = 18, loc='left', y=1.01 )
-plt.ylabel("Countries", fontsize=14)
-plt.xlabel("CO2 emissions - absolute number in kilotones ", fontsize=14)
-
-plt.show()
-```
-![image](images/Top_Ten_Country_by_Energy_Type.png)
 
 
-## Part-2: EDA on Subcontinent
-CO2 Emissions from Subcontinent
-In this section subcontinent countries will be examined. the list of countries are as follows:
-
-* Bangladesh,
-* India,
-* Pakistan
 #### Bangladesh
 > Contruct visualisation for Bangladesh CO2 Emissions over the years
 
@@ -465,8 +462,9 @@ plt.show()
 
 #### India
 
+> # Contruct visualisation for India CO2 Emissions over the years
+
 ```pyhton
-# Contruct visualisation for India CO2 Emissions over the years
 plt.figure(figsize = (20,10))
 sns.lineplot(x = "Year", y = "Value", data = df_sub[df_sub["Area"]=="India"])
 
@@ -481,8 +479,9 @@ plt.show()
 
 ![image](images/plot12.png)
 
+> Groupby India and Item and plot the mean in horizontal bar chart
+
 ```pyhton
-# Groupby India and Item and plot the mean in horizontal bar chart
 df_sub[df_sub["Area"]=="India"].groupby("Item")["Value"].sum().plot(kind="barh", figsize=(15,8))
 
 #customisation
