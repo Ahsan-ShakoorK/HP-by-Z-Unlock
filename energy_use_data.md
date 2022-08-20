@@ -108,7 +108,6 @@ memory usage: 4.9+ MB
  
 ### Step-5: Finding Missing Values
 - DataSet is cleaned as far as missing values are concerned
--
 ```python
 df.isnull().sum()
 ```
