@@ -452,4 +452,6 @@ plt.figure(figsize = (20,10))
 sns.lineplot(x = "Year", y = "Value", data = df_sub[df_sub["Area"]=="India"])
 plt.show()
 ```
+> **Output :**
 
+![image](output.png)
