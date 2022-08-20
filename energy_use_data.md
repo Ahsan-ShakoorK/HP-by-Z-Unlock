@@ -1,5 +1,5 @@
 # Team Enterpernures
-> **Submitted by:** **Muhammad Waleed Anjum** & **Ahsan Shakoor**
+> **Submitted by** **Muhammad Waleed Anjum** & **Ahsan Shakoor**
 
 ## Exploratory Data Analysis (CO2 Emissions from Different Energy Sectors) 
 Data Source: [Food and Agriculture Organisation of the UN](https://www.fao.org/faostat/en/#data/GN)
@@ -167,12 +167,15 @@ Natural gas (including LNG)          3787
 Gas-diesel oils used in fisheries     747
 Fuel oil used in fisheries            467
 Name: Item, dtype: int64
+```
 
 ```python
 # unique values in each column
 df.nunique
-> **Output :**
+```
 
+> **Output :**
+```
 ```python
 Domain Code             1
 Domain                  1
@@ -390,8 +393,9 @@ plt.show()
 #### Study Each Subcontinent Country and Their Comparison 
 
 #### Bangladesh
+> Contruct visualisation for Bangladesh CO2 Emissions over the years
+
 ```pyhton
-# Contruct visualisation for Bangladesh CO2 Emissions over the years
 plt.figure(figsize = (20,10))
 sns.lineplot(x = "Year", y = "Value", data = df_sub[df_sub["Area"]=="Bangladesh"])
 
@@ -450,9 +454,9 @@ plt.show()
 ![image](images/Plot13.png)
 
 #### Pakistan
+> Contruct visualisation for Pakistan CO2 Emissions over the years
 
 ```pyhton
-# Contruct visualisation for Pakistan CO2 Emissions over the years
 plt.figure(figsize = (20,10))
 sns.lineplot(x = "Year", y = "Value", data = df_sub[df_sub["Area"]=="Pakistan"])
 
@@ -466,8 +470,9 @@ plt.show()
 ```
 ![image](images/Plot14.png)
 
+> Groupby Pakistan and Item and plot the mean in horizontal bar chart
+
 ```pyhton
-# Groupby Pakistan and Item and plot the mean in horizontal bar chart
 df_sub[df_sub["Area"]=="Pakistan"].groupby("Item")["Value"].sum().plot(kind="barh", figsize=(15,8))
 
 #customisation
@@ -480,10 +485,8 @@ plt.show()
 
 ![image](images/Plot15.png)
 
-#### Combine
-
+> CO2 Emissions over the years
 ```python
-# Contruct visualisation for Bangladesh CO2 Emissions over the years
 plt.figure(figsize = (20,10))
 
 sns.lineplot(x = "Year", y = "Value", data = df_sub, hue = "Area")
@@ -498,8 +501,9 @@ plt.show()
 ```
 ![image](images/Plot16.png)
 
+#### Combine
+>  Comparison of CO2 emissions between subcontinents countries
 ```pyhton
-# Comparison of CO2 emissions between subcontinents countries
 df_sub.groupby(['Area', 'Item'])['Value'].mean().unstack().plot(kind='barh', figsize=(15, 10))
 
 #customisation
