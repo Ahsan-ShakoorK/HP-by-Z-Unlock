@@ -409,8 +409,9 @@ plt.show()
 ```
 ![image](images/Plot10.png)
 
+> Groupby Bangladesh and Item and plot the mean in horizontal bar chart
+
 ```pyhton
-# Groupby Bangladesh and Item and plot the mean in horizontal bar chart
 df_sub[df_sub["Area"]=="Bangladesh"].groupby("Item")["Value"].sum().plot(kind="barh", figsize=(15,8))
 
 #customisation
