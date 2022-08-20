@@ -368,7 +368,7 @@ In this section subcontinent countries will be examined. the list of countries a
 df_sub = df_clean[df_clean["Area"].isin(["India", "Pakistan", 'Bangladesh'])]
 df_sub.head()
 ```
-![image](images/Table1.png)
+![image](images/Table1.PNG)
 
 > Shape of selected subcontinents countries dataframe
 
@@ -387,7 +387,7 @@ df_sub.describe()
 ```
 > **OutPut:**
 
-![image](images/Table2.png)
+![image](images/Table2.PNG)
 
 ### Visualizing Subcontinents Countries Role in CO2 emissions
 
