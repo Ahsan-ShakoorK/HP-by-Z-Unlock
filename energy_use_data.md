@@ -17,10 +17,10 @@ In recent years climate change has gained significant momentum. The one key sour
   - Part 2 is EDA on Subcontinent Countries only
 ## Part-1: EDA on Whole DataSet
 
-### Step-1: Importing Libraries
+### Step-1: Importing neccesary Libraries
+>  importing libraries
 
 ```python
-# importing libraries
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -168,9 +168,9 @@ Gas-diesel oils used in fisheries     747
 Fuel oil used in fisheries            467
 Name: Item, dtype: int64
 ```
+> unique values in each column
 
 ```python
-# unique values in each column
 df.nunique
 ```
 
@@ -194,9 +194,10 @@ Flag Description        3
 dtype: int64
 ```
 ### Step-8: Feature Selection
-> "Domain Code", "Domain", "Element Code" and "Element" contain only one variable. Similarly "YearCode", "Area Code" and "Flag" columns does not provide any useful insights. Therefore these can be removed from the dataset with no loss of understanding/ distorting the overall dataset.
+- "Domain Code", "Domain", "Element Code" and "Element" contain only one variable. Similarly "YearCode", "Area Code" and "Flag" columns does not provide any useful insights. Therefore these can be removed from the dataset with no loss of understanding/ distorting the overall dataset.
+>  Clean data - exclude unnecessary data improved readability
+
 ```python
-# Clean data - exclude unnecessary data improved readability
 
 df_clean = pd.read_csv("energy_use_data_11-29-2021.csv")
 x = ["Area Code (ISO3)", "Domain Code", "Domain", "Element Code", "Element", "Year Code","Flag" ]
@@ -215,10 +216,10 @@ Area	Item Code	Item	Year	Unit	Value	Flag Description
 ```
 
 ### Step-9: Distribution of Data
-> The data is extremely broadly distributed with many values in the range of 0 to 25000 with a strong skew to the right.
+- The data is extremely broadly distributed with many values in the range of 0 to 25000 with a strong skew to the right.
+> Overall Data Distribution 
 
 ```python
-# Overall Data Distribution 
 plt.figure(figsize = (25,10))
 sns.histplot(x = "Value", data = df_clean)
 
@@ -231,10 +232,11 @@ plt.show()
 ```
 ![image](images/plot1_Distribution_CO2_emissions.png)
 
-> This distribution remains relatively unchanged when each energy industry is examined individually.
+- This distribution remains relatively unchanged when each energy industry is examined individually.
+>  Data Distribution by Energy Sector
+
 
 ```python
-# Data Distribution by Energy Sector
 g= sns.FacetGrid(data = df_clean, col = "Item", col_wrap = 1,margin_titles= False, height = 6,aspect = 4,  sharex=False)
 g.map(sns.histplot, "Value",)
 
@@ -260,8 +262,10 @@ plt.show()
 ```
 ![image](images/plot3_Distribution_CO2_emissions_boxplot.png)
 
+> Boxplot of CO2 emissions by Energy Sector 
+
+
 ```pyhton
-# Boxplot of CO2 emissions by Energy Sector 
 plt.figure(figsize = (25,10))
 sns.boxplot(data= df_clean, x= "Item", y = "Value")
 
@@ -278,8 +282,9 @@ plt.xlabel("Energy", fontsize=14)
 
 ### Step-9: Visualization of Data
 #### **Visualization of CO2 emissions over the years**
+> visualization of CO2 emissions over the years
+
 ```pyhton
-# visualization of CO2 emissions over the years
 plt.figure(figsize = (20,10))
 sns.lineplot(x = "Year", y = "Value", data = df_clean)
 
@@ -292,8 +297,10 @@ plt.show()
 ```
 ![image](images/plot5_CO2_emissions_over_the_yeras.png)
 
+> visualization of CO2 emissions over the years
+
+
 ```pyhton
-# visualization of CO2 emissions over the years
 plt.figure(figsize = (20,10))
 sns.lineplot(x = "Year", y = "Value", data = df_clean, hue = "Item")
 
@@ -309,8 +316,10 @@ plt.show()
 ```
 ![image](images/plot6_CO2_emissions_over_the_yeras.png)
 
+> Distribution of Energy type 
+
+
 ```pyhton
-# Distribution of Energy type 
 plt.figure(figsize = (20,10))
 sns.countplot(x = "Item", data = df_clean)
 
@@ -332,15 +341,18 @@ In this section subcontinent countries will be examined. the list of countries a
 * Pakistan
 
 ### Feature Selection and Data Insights
+> Selecting Subcontinents countries
+
 ```
-# Selecting Subcontinents countries
 df_sub = df_clean[df_clean["Area"].isin(["India", "Pakistan", 'Bangladesh'])]
 df_sub.head()
 ```
 ![image](images/Table1.png)
 
+> Shape of selected subcontinents countries dataframe
+
+
 ```
-# Shape of selected subcontinents countries dataframe
 df_sub.shape
 ```
 > **OutPut:**
@@ -360,8 +372,10 @@ df_sub.describe()
 
 #### Subcontinent Countries (Combine) CO2 Emissions usage over the years
 
+> Energy usage by subcontinents countries
+
+
 ```python
-# Energy usage by subcontinents countries
 plt.figure(figsize = (20,10))
 sns.lineplot(x = "Year", y = "Value", data = df_sub)
 
@@ -376,8 +390,10 @@ plt.show()
 
 #### Subcontinent Countries (Combine) CO2 Emissions over the years by Energy Type
 
+> Energy usage by subcontinents countries
+
+
 ```python
-# Energy usage by subcontinents countries
 plt.figure(figsize = (20,10))
 sns.lineplot(x = "Year", y = "Value", data = df_sub, hue = "Item")
 
@@ -390,8 +406,32 @@ plt.show()
 ```
 ![image](images/plot9.png)
 
-#### Study Each Subcontinent Country and Their Comparison 
+> Top 10 Countries with maximum CO2 Emissions
 
+```python
+s = df_clean.groupby(["Area"]).sum().sort_values(by="Value", ascending=False).head(10)
+
+plt.figure(figsize = (20,10))
+sns.barplot(y=s.index,x='Value',data=s)
+
+#customisation
+plt.annotate('Source: https://www.fao.org/faostat/en/#data/GN', (0,-.1), xycoords ='axes fraction' )
+plt.title("Top 10 Countries with maximum CO2 Emissions", fontsize = 18, loc='left', y=1.01 )
+plt.ylabel("Countries", fontsize=14)
+plt.xlabel("CO2 emissions - absolute number in kilotones ", fontsize=14)
+
+plt.show()
+```
+![image](images/Top_Ten_Country_by_Energy_Type.png)
+
+
+## Part-2: EDA on Subcontinent
+CO2 Emissions from Subcontinent
+In this section subcontinent countries will be examined. the list of countries are as follows:
+
+* Bangladesh,
+* India,
+* Pakistan
 #### Bangladesh
 > Contruct visualisation for Bangladesh CO2 Emissions over the years
 
