@@ -3,7 +3,7 @@
 
 ## Exploratory Data Analysis on Energy Use Data 
 ## About the Dataset
-- This Dataset is taken from HP by Z Unlock. In this dataset, we are going to do EDA on CO2 emissions tracking from various energy industries around the world. We have data for the last 50 years, from 1970 to 2019.
+- This Dataset is taken from [HP by Z Unlock](https://github.com/Z-Unlocked/Unlocked_Challenge_1). In this dataset, we are going to do EDA on CO2 emissions tracking from various energy industries around the world. We have data for the last 50 years, from 1970 to 2019.
 
 ### We do EDA on 2 parts in First part we do EDA on whole data and in Second part we do EDA on Exploring Specific Region Data (Subcontinent).
 
@@ -170,7 +170,7 @@ Data columns (total 7 columns):
  6   Flag Description  46131 non-null  object 
 dtypes: float64(1), int64(1), object(5)
 memory usage: 2.5+ MB
-```python
+```
 
 ### Step-5: Finding Missing Values
 
@@ -287,7 +287,7 @@ plt.title("Top Ten Countries by Energy Type", fontsize = 18, loc='left', y=1.01 
 plt.xticks(rotation=45)
 plt.show()
 ```
-
+![image](images/Top_Ten_Country_by_Energy_Type.png)
 
 ```python
 df_clean.head()
@@ -308,7 +308,7 @@ sns.barplot(x='Item', y='Value', data=df)
 plt.show()
 ```
 > **Output :**
-
+![image](images/Item_and_values.png)
 
 ```python
 plt.figure(figsize = (20,10))
@@ -316,7 +316,7 @@ sns.boxplot(y='Value', data=df)
 plt.show()
 ```
 > **Output :**
-
+![image](images/Values_Boxplot.png)
 
 ```python
 #Construct visualisation 
@@ -331,7 +331,7 @@ plt.xticks(rotation=45)
 plt.show()
 ```
 > **Output :**
-
+![image](images/Distribution_Energy_type.png)
 
 
 # Exploring Specific Region Data (Subcontinent)
@@ -385,7 +385,7 @@ sns.barplot(x='Area', y='Value', data=df_sub)
 plt.show()
 ```
 > **Output :**
-
+![image](images/Area_and_Value_of_Subcontinent.png)
 
 ```python
 df_sub = df_clean[df_clean["Area"].isin(["India", "Pakistan", 'Bangladesh'])]
@@ -406,27 +406,27 @@ df_sub.head()
 df_sub[df_sub["Area"]=="Bangladesh"].groupby("Item")["Value"].mean().plot(kind="barh", figsize=(15,8))
 ```
 > **Output :**
-
+![image](images/Bangladesh_item_and_values.png)
 
 ```python
 # Groupby India and Item and plot the mean
 df_sub[df_sub["Area"]=="India"].groupby("Item")["Value"].mean().plot(kind="barh", figsize=(15,8))
 ```
 > **Output :**
-
+![image](images/India_item_and_values.png)
 
 ```python
 # Groupby Pakistan and Item and plot the mean
 df_sub[df_sub["Area"]=="Pakistan"].groupby("Item")["Value"].mean().plot(kind="barh", figsize=(15,8))
 ```
 > **Output :**
-
+![image](images/Pakistan_Item_and_Values.png)
 
 ```python
 df_sub.groupby(['Area', 'Item'])['Value'].mean().unstack().plot(kind='barh', figsize=(15, 10))
 ```
 > **Output :**
-
+![image](images/Subcontinent_area_item_and_mean_of_values.png)
 
 ```python
 plt.figure(figsize = (26,8))
@@ -442,9 +442,7 @@ plt.ylabel("CO2 emissions - absolute number in kilotones ", fontsize=14)
 plt.show()
 ```
 > **Output :**
-
-
-
+![image](images/line_plot_by_year_with_averge_values.png)
 
 ```python
 # Contruct visualisation for india's energy usage increase over the years
@@ -454,4 +452,4 @@ plt.show()
 ```
 > **Output :**
 
-![image](output.png)
+![image](images/line_plot.png)
