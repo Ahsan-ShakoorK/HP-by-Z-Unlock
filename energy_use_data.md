@@ -5,16 +5,16 @@
 Data Source: [Food and Agriculture Organization of the UN](https://www.fao.org/faostat/en/#data/GN)
  
 ## Introduction
-In recent years, climate change has gained significant momentum. The one key sources of CO2 emissions has been from energy usage. In this project, the CO2 emissions from specific energy sectors will be investigated.
- 
+Climate change is a global challenge. There are multiple factors influencing climate change. CO2 emissions are one of them. The one key source of CO2 emissions has been from energy usage. In this project the CO2 emissions from specific energy sectors are investigated
+
 ## About the Dataset:
-- Provided by the [Food and Agriculture Organization of the UN](https://www.fao.org/faostat/en/#data/GN), the dataset used in this EDA has records covering approx. 50 years from 1970 to 2019.  It holds a breakdown of CO2 emissions for a number of energy sectors from a myriad of countries. As it will become apparent, CO2 emissions from energy industries fluctuates over time and country to country.
+- Provided by the [Food and Agriculture Organization of the UN](https://www.fao.org/faostat/en/#data/GN), the dataset used in this EDA has records covering approx. 50 years from 1970 to 2019. It holds a breakdown of CO2 emissions for a number of energy sectors from a myriad of countries. As it will become apparent, CO2 emissions from energy industries fluctuates over time and country to country.
  
 ## Methodology:
 - Firstly, the whole data was explored. Redundant Data was removed to simplify the analysis. There were no missing values however distribution of data is not evenly distributed due to multiple reasons i.e. energy usage fluctuations in different seasons and different parts of the globe, similarly there is huge difference in energy usage of different sectors.
 - We divide our EDA into two parts.
   - Part 1 is EDA on whole data
-  - Part 2 is EDA on Subcontinent Countries only
+  - Part 2 is EDA on Subcontinent Countries
 ## Part-1: EDA on Whole DataSet
  
 ### Step-1: Importing necessary Libraries
@@ -635,67 +635,16 @@ plt.show()
  
 This has been an extensive examination of the global CO2 emissions for the energy sector for roughly a 50-year period. It highlights the fluctuations in CO2 overall as well as for specific energy sectors. In addition, different countries recorded varying levels of CO2 emissions from different energy types.
 # 1. CO2 emission World
-- China is the most affected country in the with value of 5.804601e Million kilotons
-- Niue, less affected country in the world with the Value of 1.6 kilotonnes
-- From 1995 Most of the CO2 is emitted by Electricity, and in 2019  the value of approx, 8000 Kiloton.
-- From 1885 we also see the spike in emission of CO2 with Motor Gasoline and LPG.
-- Most of the CO2 emitted by Electricity in the world With the Value of 3.542233 Million kilotons
-- least of the CO2 emitted by Motor Gasoline in the world With the Value of 1000.5 kilotons
-- Top 10 Country by emission of CO2
- 
-  - Area   Value
-  - China   5.804601e+06
-  - China,  mainland  5.686551e+06
-  - India   4.906070e+06
-  - United   States of America  3.544757e+06
-  - Japan   1.613227e+06
-  - USSR    1.342590e+06
-  - Russian Federation  1.006218e+06
-  - Brazil  8.381262e+05
-  - Poland  7.275216e+05
-  - Turkey  7.107471e+05
- 
-- Top Item by emission
-   - Item
-  - Coal                             8.465990e+05
-  - Electricity                      3.542233e+06
-  - Fuel oil                         7.315993e+04
-  - Gas-Diesel oil                   6.778946e+05
-  - Liquefied petroleum gas (LPG)    3.354174e+03
-  - Motor Gasoline                   1.541632e+03
-  - Natural gas (including LNG)      4.146732e+04
- 
+- China is the most affected country in the world with a value of 5.8e+6 kilotons
+- Niue is the least affected country in the world with the Value of 1.6 kilotonnes
+- From 1985 to 1995 we observe a spike in emission of CO2 due to Motor Gasoline and LPG.
+- major contributor of the CO2 emissions so far is electricity sector with a value of 3.5e+06 kilotons
+- least contributor of the CO2 emissions so far is Liquefied petroleum gas (LPG) sector with a value of 354174e+03 kilotons
+
 # 2. In the Subcontinent
  
-- India is the most affected country from Subcontinent with value of 4.906070e+06 Million Kilotons
-  - Value in Kilotons
-  - Coal                             8.133342e+05
-  - Electricity                      3.420779e+06
-  - Fuel oil                         7.242071e+04
-  - Gas-Diesel oil                   5.801133e+05
-  - Liquefied petroleum gas (LPG)    3.277531e+02
-  - Motor Gasoline                   1.217229e+03
-  - Natural gas (including LNG)      1.787776e+04
-- Pakistan is second affected country from Sub continent with value of 0.0924383 Million kilotons
-  - Value in Kilotone
-  - Coal                              27894.4824
-  - Electricity                      110799.5409
-  - Fuel oil                            361.2075
-  - Gas-Diesel oil                    27892.1467
-  - Liquefied petroleum gas (LPG)      2902.6501
-  - Motor Gasoline                      289.3997
-  - Natural gas (including LNG)       22298.8643
-- Bangladesh is least affected country from Sub continent with value of .008774187e Million kilotons
-  - Value in Kilotons
-  - Coal                              5370.3701
-  - Electricity                      10654.8759
-  - Fuel oil                           378.0197
-  - Gas-Diesel oil                   69889.1326
-  - Liquefied petroleum gas (LPG)      123.7708
-  - Motor Gasoline                      35.0041
-  - Natural gas (including LNG)       1290.6937
-- Most of the CO2 emitted by Electricity in Subcontinent With the Value of 3.542233 Million kilotons
-- least of the CO2 emitted by Motor Gasoline in Subcontinent With the Value of 1000.5 kilotons
- 
- 
+- India is the most affected country from Subcontinent with value of 4.9e+06 Kilotons of CO2 emissions.Whereas the electricity sector is the most prominent CO2 emitter with a value of 3.42 e+06 kilotons
+- Pakistan is the second most affected country from Sub continent with the value of 19.0e+05  kilotons  of CO2 emissions Whereas the electricity sector is the most prominent CO2 emitter with a value of 110799.5 kilotons
+- Bangladesh is least affected country from Sub continent with value of 88.0e+04 kilotons  of CO2 emissions.Whereas the Gas-Diesel oil sector is the most prominent CO2 emitter with a value of 69889 kilotons
+
 
