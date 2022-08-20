@@ -109,6 +109,7 @@ memory usage: 4.9+ MB
 
 ### Step-5: Finding Missing Values
 - DataSet is cleaned as far as missing values are concerned
+- 
 ```python
 df.isnull().sum()
 ```
@@ -630,7 +631,7 @@ plt.show()
 ![image](images/plot17.png)
 
 
-## Conclusion
+# Conclusion
 
 This has been an extensive examination of the global CO2 emissions for the energy sector for roughly a 50 year period. It highlights the fluctuations in CO2 overall as well as for specific energy sectors. In addition, different countries recorded varying levels of CO2 emissions from different energy types.
 # 1. CO2 emission World 
@@ -641,8 +642,8 @@ This has been an extensive examination of the global CO2 emissions for the energ
 - Most of the CO2 emmited by Electricity in the world With the Value of 3.542233 Million kilotone
 - least of the CO2 emmited by Motor Gsoline in the world With the Value of 1000.5 kilotone
 - Top 10 Country by emission of CO2
-   -      Value
-  - Area	
+
+  - Area	 Value
   - China 	5.804601e+06
   - China,  mainland	5.686551e+06
   - India	  4.906070e+06
