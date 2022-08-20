@@ -5,10 +5,10 @@
 Data Source: [Food and Agriculture Organisation of the UN](https://www.fao.org/faostat/en/#data/GN)
 
 ## Introduction
-In recent years climate change has gained significant momentum. The one key sources of CO2 emissions has been from energy usage. In this project the CO2 emissions form specific energy sectors will be investigated. 
+In recent years climate change has gained significant momentum. The one key sources of CO2 emissions has been from energy usage. In this project the CO2 emissions fm specific energy sectors will be investigated. 
 
 ## About the Dataset:
-- Provided by the [Food and Agriculture Organisation of the UN](https://www.fao.org/faostat/en/#data/GN), the dataset used in this EDA has records covering approx. 50 years from 1970 to 2019.  It holds a breakdown of CO2 emissions for a number of energy sectors from a myriad of countries. As it will become apparent, CO2 emissions from energy industries fluctuates over time and country to country. It is also notable that the energy types used in the fishing sector are particularly polluting. Moreover, the energy reliance differ from nation to nation and therefore the CO2 emissions from such sectors also vary. 
+- Provided by the [Food and Agriculture Organisation of the UN](https://www.fao.org/faostat/en/#data/GN), the dataset used in this EDA has records covering approx. 50 years from 1970 to 2019.  It holds a breakdown of CO2 emissions for a number of energy sectors from a myriad of countries. As it will become apparent, CO2 emissions from energy industries fluctuates over time and country to country. 
 
 ## Methodolgy:
 - First of all whole data was explored. Redundent Data was removed to simplify the analysis. There were no missing values however distribution of data is not evenly distributed due to multiple reasons i.e energy usage fluctuations in differents seasons and different parts of the globe, similarly there is huge difference in energy usage of different sectors.
@@ -351,6 +351,36 @@ plt.show()
 ![image](images/Top_Ten_Country_by_Energy_Type.png)
 
 - This graph show that to 10 countries which are emitting highest value of value of Carbon.China, China mainland, and India are the top country.
+```
+df_clean1 = df_clean.drop(["Year",'Item Code'], axis=1)
+s1 = df_clean1.groupby(["Area"]).sum().sort_values(by="Value", ascending=False).head(10)
+s1.head(10)
+```
+      -       Value
+  - Area	
+  - China 	5.804601e+06
+  - China,  mainland	5.686551e+06
+  - India	  4.906070e+06
+  - United   States of America	3.544757e+06
+  - Japan	  1.613227e+06
+  - USSR	  1.342590e+06
+  - Russian Federation	1.006218e+06
+  - Brazil	8.381262e+05
+  - Poland	7.275216e+05
+  - Turkey	7.107471e+05
+
+```
+value_count1 = df_sub.groupby("Item")["Value"].sum()
+value_count1
+```
+  - Item
+  - Coal                             8.465990e+05
+  - Electricity                      3.542233e+06
+  - Fuel oil                         7.315993e+04
+  - Gas-Diesel oil                   6.778946e+05
+  - Liquefied petroleum gas (LPG)    3.354174e+03
+  - Motor Gasoline                   1.541632e+03
+  - Natural gas (including LNG)      4.146732e+04
 
 
 ## Part-2: EDA on Subcontinent
@@ -460,6 +490,20 @@ plt.show()
 ```
 ![image](images/plot11.png)
 
+```
+df_sub[df_sub["Area"]=="Banglasedh"].groupby("Item")["Value"].sum()
+```
+> **OutPut:**
+
+  - Value in Kilotone
+  - Coal                              5370.3701
+  - Electricity                      10654.8759
+  - Fuel oil                           378.0197
+  - Gas-Diesel oil                   69889.1326
+  - Liquefied petroleum gas (LPG)      123.7708
+  - Motor Gasoline                      35.0041
+  - Natural gas (including LNG)       1290.6937
+
 #### India
 
 > # Contruct visualisation for India CO2 Emissions over the years
@@ -493,6 +537,20 @@ plt.show()
 ```
 ![image](images/plot13.png)
 
+```
+df_sub[df_sub["Area"]=="India"].groupby("Item")["Value"].sum()
+```
+
+> **OutPut:**
+
+  - Value in Kilotone
+  - Coal                             8.133342e+05
+  - Electricity                      3.420779e+06
+  - Fuel oil                         7.242071e+04
+  - Gas-Diesel oil                   5.801133e+05
+  - Liquefied petroleum gas (LPG)    3.277531e+02
+  - Motor Gasoline                   1.217229e+03
+  - Natural gas (including LNG)      1.787776e+04
 #### Pakistan
 > Contruct visualisation for Pakistan CO2 Emissions over the years
 
@@ -524,6 +582,21 @@ plt.show()
 ```
 
 ![image](images/plot15.png)
+
+```
+df_sub[df_sub["Area"]=="Pakistan"].groupby("Item")["Value"].sum()
+```
+
+> **OutPut:**
+
+  - Value in Kilotone
+  - Coal                              27894.4824
+  - Electricity                      110799.5409
+  - Fuel oil                            361.2075
+  - Gas-Diesel oil                    27892.1467
+  - Liquefied petroleum gas (LPG)      2902.6501
+  - Motor Gasoline                      289.3997
+  - Natural gas (including LNG)       22298.8643
 
 > CO2 Emissions over the years
 ```python
@@ -558,5 +631,68 @@ plt.show()
 
 
 ## Conclusion
-This has been an extensive examination of the global CO2 emissions for the energy sector for roughly a 50 year period. It highlights the fluctuations in CO2 overall as well as for specific energy industries. Energy centred upon fisheries is particularly polluting though its level of pollution appears to have decreased in the 2000s and onwards.
-In addition, different countries recorded varying levels of CO2 emissions from different energy types.
+
+This has been an extensive examination of the global CO2 emissions for the energy sector for roughly a 50 year period. It highlights the fluctuations in CO2 overall as well as for specific energy sectors. In addition, different countries recorded varying levels of CO2 emissions from different energy types.
+# 1. CO2 emission World 
+- China is the most affected country in the with value of 5.804601e Million kilotonnes
+- Niue sless affected country in the world with the Value of 1.6 kilotonnes
+- From 1995 Most of the CO2 is emmit by Electricty, and in 2019  the value of approx 8000 Kiloton.
+- From 1885 we also see the spik in emmission of CO2 with Motor Gasoline and LPG.
+- Most of the CO2 emmited by Electricity in the world With the Value of 3.542233 Million kilotone
+- least of the CO2 emmited by Motor Gsoline in the world With the Value of 1000.5 kilotone
+- Top 10 Country by emission of CO2
+   -      Value
+  - Area	
+  - China 	5.804601e+06
+  - China,  mainland	5.686551e+06
+  - India	  4.906070e+06
+  - United   States of America	3.544757e+06
+  - Japan	  1.613227e+06
+  - USSR	  1.342590e+06
+  - Russian Federation	1.006218e+06
+  - Brazil	8.381262e+05
+  - Poland	7.275216e+05
+  - Turkey	7.107471e+05
+
+- Top Item by emission
+   - Item
+  - Coal                             8.465990e+05
+  - Electricity                      3.542233e+06
+  - Fuel oil                         7.315993e+04
+  - Gas-Diesel oil                   6.778946e+05
+  - Liquefied petroleum gas (LPG)    3.354174e+03
+  - Motor Gasoline                   1.541632e+03
+  - Natural gas (including LNG)      4.146732e+04
+  
+# 2. In the Subcontinent
+
+- India is the most affected country from Subcontinent with value of 4.906070e+06 Million Kilotone
+  - Value in Kilotone
+  - Coal                             8.133342e+05
+  - Electricity                      3.420779e+06
+  - Fuel oil                         7.242071e+04
+  - Gas-Diesel oil                   5.801133e+05
+  - Liquefied petroleum gas (LPG)    3.277531e+02
+  - Motor Gasoline                   1.217229e+03
+  - Natural gas (including LNG)      1.787776e+04
+- Pakistan is second affected country from Sub continent with value of 0.0924383 Million kilotone
+  - Value in Kilotone
+  - Coal                              27894.4824
+  - Electricity                      110799.5409
+  - Fuel oil                            361.2075
+  - Gas-Diesel oil                    27892.1467
+  - Liquefied petroleum gas (LPG)      2902.6501
+  - Motor Gasoline                      289.3997
+  - Natural gas (including LNG)       22298.8643
+- Bangladesh is least affected country from Sub continent with value of .008774187e Million kilotone
+  - Value in Kilotone
+  - Coal                              5370.3701
+  - Electricity                      10654.8759
+  - Fuel oil                           378.0197
+  - Gas-Diesel oil                   69889.1326
+  - Liquefied petroleum gas (LPG)      123.7708
+  - Motor Gasoline                      35.0041
+  - Natural gas (including LNG)       1290.6937
+- Most of the CO2 emmited by Electricity in Subcontinent With the Value of 3.542233 Million kilotone
+- least of the CO2 emmited by Motor Gasoline in Subcontinent With the Value of 1000.5 kilotone
+  
