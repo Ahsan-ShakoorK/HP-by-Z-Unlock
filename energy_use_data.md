@@ -1,5 +1,4 @@
 # Team Entrepreneurs
-> **Submitted by** **Muhammad Waleed Anjum** & **Ahsan Shakoor**
  
 ## Exploratory Data Analysis (CO2 Emissions from Different Energy Sectors)
 Data Source: [Food and Agriculture Organization of the UN](https://www.fao.org/faostat/en/#data/GN)
